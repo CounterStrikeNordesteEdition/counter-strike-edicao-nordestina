@@ -38,7 +38,7 @@
             overflow-x: hidden;
         }
 
-        /* Fundo imersivo usando background-canal.png */
+        /* Fundo imersivo usando o background do canal */
         .bg-fixed {
             position: fixed;
             top: 0;
@@ -55,7 +55,7 @@
             padding: 0 20px;
         }
 
-        /* Header Agressivo e Profissional */
+        /* Header Principal */
         header {
             background: rgba(14, 22, 16, 0.95);
             border: 2px solid var(--border-color);
@@ -371,7 +371,7 @@
             margin: 0;
         }
 
-        /* Galeria */
+        /* Galeria Corrigida */
         .screenshot-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -382,7 +382,7 @@
             background: #000;
             border: 2px solid var(--border-color);
             border-radius: 6px;
-            height: 150px;
+            height: 180px;
             position: relative;
             overflow: hidden;
         }
@@ -453,7 +453,6 @@
         <div class="layout-grid">
             <!-- Sidebar -->
             <aside>
-                <!-- Card do YouTube 100% Clicável -->
                 <a href="https://www.youtube.com/@CounterStrikeEdi%C3%A7%C3%A3oNordestina" target="_blank" class="yt-card">
                     <img src="youtube.png" alt="YouTube">
                     <span class="main-lbl">Acessar Canal</span>
@@ -469,24 +468,22 @@
                     <a href="#requisitos"><i class="fa-solid fa-microchip"></i> Otimização</a>
                 </nav>
 
-                <!-- ESPAÇO RESERVADO PARA SEU ANÚNCIO LATERAL (EX: ADSENSE 300x250) -->
                 <div class="ad-sidebar">
                     <i class="fa-solid fa-rectangle-ad" style="font-size: 2rem; margin-bottom: 10px;"></i>
                     Espaço de Anúncio<br>(Monetização)
-                    <!-- Cole seu script de anúncios aqui no futuro -->
                 </div>
             </aside>
 
             <!-- Conteúdo Centralizado -->
             <main>
-                <!-- Bloco de História Real e Sofrida -->
+                <!-- Bloco de História -->
                 <div class="block" id="historia">
                     <h2>🌵 A Nossa Jornada</h2>
                     <p>O <strong>Counter-Strike Edição Nordestina</strong> começou originalmente de forma muito simples: um desafio descontraído de projeto escolar. Mas quem trabalha com modificação de jogos antigos sabe o quanto a caminhada é complexa. Foram noites em claro quebrando a cabeça com arquivos de áudio corrompidos, texturas desalinhadas e linhas de comando que simplesmente travavam os servidores sem explicação.</p>
                     <p>Substituir cada fala genérica dos bots clássicos por dublagens marcantes da nossa cultura, ajustar os caminhos táticos dos bots nos mapas e compilar tudo em uma arquitetura limpa e que não exigisse privilégios de administrador deu muito trabalho. Foi um processo árduo de testes e modificações intensas, feito com dedicação total para entregar a melhor experiência de resenha da comunidade.</p>
                 </div>
 
-                <!-- Central de Conteúdos e Vídeos que vão sair nesta semana -->
+                <!-- Central de Conteúdos -->
                 <div class="block" id="tutoriais">
                     <h2>📺 Vídeos e Tutoriais da Semana</h2>
                     <p>Fique de olho no nosso canal oficial! Esta semana teremos uma série completa de conteúdos práticos ensinando o passo a passo para extrair o máximo do mod:</p>
@@ -513,22 +510,20 @@
                     </div>
                 </div>
 
-                <!-- Hub Monetizado de Downloads -->
+                <!-- Hub de Downloads -->
                 <div class="block" id="download">
                     <h2>💾 Servidores de Download</h2>
                     <div class="download-hub">
                         
-                        <!-- ESPAÇO RESERVADO PARA ANÚNCIO HORIZONTAL (EX: 728x90) -->
                         <div class="ad-banner-container">
                             <i class="fa-solid fa-rectangle-ad" style="margin-right: 10px;"></i>
                             Publicidade (Espaço reservado para banners de cliques monetizados)
-                            <!-- Cole seu script de anúncios aqui no futuro -->
                         </div>
 
                         <p style="text-align: center; margin-bottom: 25px;">Escolha a plataforma de sua preferência para baixar o instalador. O redirecionamento passará de forma segura pela nossa tela de processamento.</p>
                         
                         <div class="download-grid">
-                            <!-- OPÇÃO 1: MEDIAFIRE (.RAR SUPER RÁPIDO) -->
+                            <!-- OPÇÃO 1: MEDIAFIRE -->
                             <div class="dl-box">
                                 <div>
                                     <h4>MediaFire (Recomendado)</h4>
@@ -554,29 +549,29 @@
                     </div>
                 </div>
 
-                <!-- Galeria do Jogo -->
+                <!-- Galeria do Jogo Corrigida -->
                 <div class="block">
                     <h2>📸 Registros de Combate</h2>
                     <div class="screenshot-grid">
-                        <div class="media-card" style="background: url('mapa-1.png') center/cover;">
+                        <div class="screen-card" style="background: url('mapa-1.png') center/cover no-repeat;">
                             <div class="tag">Mapas Regionais</div>
                         </div>
-                        <div class="media-card" style="background: url('mapa-2.png') center/cover;">
+                        <div class="screen-card" style="background: url('mapa-2.png') center/cover no-repeat;">
                             <div class="tag">Cenários Próprios</div>
                         </div>
-                        <div class="media-card" style="background: url('hud jogo.png') center/cover;">
+                        <div class="screen-card" style="background: url('hud jogo.png') center/cover no-repeat;">
                             <div class="tag">HUD e Menus</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Requisitos e Otimização -->
+                <!-- Requisitos -->
                 <div class="block" id="requisitos">
                     <h2>🖥️ Especificações Técnicas</h2>
                     <div class="specs-list">
                         <div><label>Plataforma Base:</label> <span>Windows 7 / 8 / 10 / 11</span></div>
-                        <div><label>Memória RAM:</label> <span>512 MB (Altamente otimizado para rodar liso em computadores de escolas)</span></div>
-                        <div><label>Armazenamento:</label> <span>~ 450 MB Livres</span></div>
+                        <div><label>Memória RAM:</label> <span>512 MB (Altamente otimizado para rodar liso em computadores fracos)</span></div>
+                        <div><label>Armazenamento:</label> <span>~ 1.17 GB Livres</span></div>
                         <div><label>Tipo de Execução:</label> <span>Modo Portátil (Pode ser jogado direto de um Pendrive)</span></div>
                     </div>
                 </div>
