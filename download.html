@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processando Download | CS Edição Nordestina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --neon-green: #8cb828;
+            --bg-dark: #060907;
+            --panel-bg: rgba(12, 18, 13, 0.95);
+            --border-color: #243327;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            font-family: 'Rajdhani', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .bg-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(6, 9, 7, 0.6) 0%, var(--bg-dark) 90%), url('background-canal.png') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .container {
+            background: var(--panel-bg);
+            border: 2px solid var(--border-color);
+            border-top: 4px solid var(--neon-green);
+            max-width: 650px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+        }
+
+        h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .status-text {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .countdown-box {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(140, 184, 40, 0.4);
+        }
+
+        .ad-zone {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(140, 184, 40, 0.3);
+            padding: 30px;
+            margin: 30px 0;
+            color: #4a5568;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .btn-ready {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--neon-green);
+            color: #000;
+            text-decoration: none;
+            padding: 18px 30px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(140, 184, 40, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-ready:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--neon-green);
+        }
+
+        .server-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: var(--neon-green);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-fixed"></div>
+
+    <div class="container">
+        <i class="fa-solid fa-shield-halved" style="color: var(--neon-green); font-size: 3rem; margin-bottom: 15px;"></i>
+        <h1>Verificando Arquivo</h1>
+        <p class="status-text" id="status">Por favor, aguarde enquanto preparamos seu link seguro...</p>
+
+        <div class="countdown-box" id="timer">15</div>
+
+        <div class="ad-zone">
+            <i class="fa-solid fa-rectangle-ad" style="font-size: 1.5rem; margin-bottom: 8px; display: block;"></i>
+            Anúncio Patrocinado<br>
+            <span style="font-size: 0.8rem; color: #334155;">(Seu script de monetização vai aqui)</span>
+        </div>
+
+        <a href="#" id="download-link" class="btn-ready" target="_blank">
+            <i class="fa-solid fa-cloud-arrow-down"></i> Iniciar Download
+        </a>
+        <div id="server-type" class="server-badge" style="display: none;"></div>
+    </div>
+
+    <script>
+        const links = {
+            mediafire: "https://www.mediafire.com/file/0b6jayix78xu816/Counter_Strike_Brasil.rar/file",
+            googledrive: "https://drive.google.com/drive/folders/1c0ghAGnSHMINhqB16T1cKCJQ1sIYc0Mu?usp=drive_link"
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const server = urlParams.get('server') || 'mediafire';
+
+        let timeLeft = 15;
+        const timerElement = document.getElementById('timer');
+        const statusElement = document.getElementById('status');
+        const buttonElement = document.getElementById('download-link');
+        const badgeElement = document.getElementById('server-type');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerElement.style.display = 'none';
+                statusElement.textContent = "Seu link foi gerado com sucesso de forma segura!";
+                statusElement.style.color = "#8cb828";
+                
+                buttonElement.href = links[server];
+                buttonElement.style.display = 'inline-flex';
+                
+                badgeElement.textContent = `Servidor ativo: ${server.toUpperCase()}`;
+                badgeElement.style.display = 'inline-block';
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
