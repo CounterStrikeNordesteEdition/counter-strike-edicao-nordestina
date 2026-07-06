@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-Strike: Edição Nordestina | Portal Oficial</title>
+    <meta name="description" content="Site oficial do mod Counter-Strike Edição Nordestina. Baixe agora a versão portátil com bots dublados, mapas regionais e otimização total.">
     
-    <!-- TAGS DE SEO PARA APARECER NO GOOGLE -->
-    <title>Counter-Strike: Edição Nordestina | Baixar Grátis Mod Oficial</title>
-    <meta name="description" content="Site oficial do jogo Counter-Strike Edição Nordestina. Baixe grátis o mod portátil com bots brasileiros, mapas modificados e o puro suco da resenha.">
-    <meta name="keywords" content="counter strike edicao nordestina, counter strike nordeste edition, cs nordeste, baixar cs nordestino, mod cs brasileiro">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Fontes Gamer e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
@@ -18,385 +13,378 @@
 
     <style>
         :root {
-            --primary: #8cb828;
-            --primary-glow: rgba(140, 184, 40, 0.3);
-            --bg-dark: #070a08;
-            --card-bg: #101511;
-            --border-color: #1b261e;
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
+            --neon-green: #8cb828;
+            --neon-glow: rgba(140, 184, 40, 0.25);
+            --bg-dark: #0a0d0b;
+            --panel-bg: rgba(16, 22, 17, 0.9);
+            --border-color: #1f2b21;
+            --text-color: #e2e8f0;
+            --text-muted: #8a99ad;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-main);
+            color: var(--text-color);
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.2rem;
-            margin: 0;
-            padding: 0;
+            font-size: 1.15rem;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header usando o background-canal.png corrigido como fundo */
-        header {  
-            background: linear-gradient(180deg, rgba(7, 10, 8, 0.6) 0%, var(--bg-dark) 100%), url('background-canal.png') center/cover no-repeat;
-            padding: 80px 20px;
-            border-bottom: 3px solid var(--primary);
-            position: relative;
+        /* Banner de Fundo Dinâmico usando background-canal.png */
+        .bg-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(180deg, rgba(10, 13, 11, 0.5) 0%, var(--bg-dark) 90%), url('background-canal.png') center/cover no-repeat;
+            z-index: -2;
         }
 
-        /* Container flexível para alinhar a Logo corrigida ao lado esquerdo do texto */
-        .header-title-container {
+        /* Linhas e detalhes cibernéticos em Neon Discreto */
+        .neon-grid-line {
+            position: fixed;
+            top: 0;
+            left: 15%;
+            width: 1px;
+            height: 100vh;
+            background: linear-gradient(to bottom, transparent, var(--neon-glow), transparent);
+            z-index: -1;
+        }
+
+        /* Container Centralizado Estilo Hub Gamer */
+        .wrapper {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Cabeçalho Unificado */
+        header {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-            flex-wrap: wrap;
+            gap: 25px;
+            padding: 30px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-bottom: 3px solid var(--neon-green);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
         }
 
-        /* Estilização da Logo.png para ficar perfeitamente circular */
         .logo-circular {
-            width: 140px;
-            height: 140px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 20px var(--primary-glow);
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-glow);
             object-fit: cover;
         }
 
-        .header-text {
-            text-align: left;
-        }
-
-        h1 {
+        .header-info h1 {
             font-family: 'Permanent Marker', cursive;
-            font-size: 4rem;
+            font-size: 3rem;
             color: #fff;
-            margin: 0;
             line-height: 1.1;
-            text-shadow: 3px 3px 0px var(--primary);
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+        }
+
+        .header-info p {
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 2px;
+            margin-top: 5px;
         }
 
-        .subtitle {
-            font-size: 1.3rem;
-            color: #cbd5e1;
-            margin: 12px 0 0 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        /* Grid Layout Limpo */
-        .main-layout {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Layout de Duas Colunas Principal */
+        .main-box {
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 30px;
-            padding: 40px 20px;
+            grid-template-columns: 260px 1fr;
+            background: var(--panel-bg);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
         }
 
-        /* Menu Lateral Estilizado */
-        .sidebar {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 8px;
-            height: fit-content;
-            position: relative;
+        /* Menu Lateral (Sidebar) */
+        aside {
+            border-right: 1px solid var(--border-color);
+            padding: 30px 20px;
+            background: rgba(10, 14, 11, 0.4);
         }
 
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--primary);
-            border-radius: 8px 8px 0 0;
-        }
-
-        .sidebar h3 {
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            text-transform: uppercase;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-        }
-
-        /* Container do ícone real do youtube.png */
-        .youtube-status-box {
+        .yt-box {
             text-align: center;
-            padding: 20px 10px;
-            background-color: #141a15;
-            border: 1px dashed #2d3b30;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255,0,0,0.2);
             border-radius: 6px;
             margin-bottom: 25px;
         }
 
-        .youtube-icon-img {
-            width: 60px;
+        .yt-box img {
+            width: 50px;
             height: auto;
-            display: block;
-            margin: 0 auto 12px;
+            margin-bottom: 8px;
         }
 
-        .youtube-status-text {
-            font-size: 1rem;
+        .yt-box p {
+            font-size: 0.95rem;
             font-weight: 700;
-            color: #ef4444;
+            color: #ff4a4a;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 0;
         }
 
-        .sidebar a {
+        aside h3 {
+            font-size: 1.1rem;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        aside nav a {
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: #a0aec0;
-            text-decoration: none;
-            padding: 12px 0;
-            border-bottom: 1px solid #141a15;
-            transition: all 0.2s ease;
-            font-weight: 700;
-        }
-
-        .sidebar a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        /* Área de Conteúdo Central */
-        .content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 35px;
-            position: relative;
-        }
-
-        section h2 {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        /* Grid de Recursos do Mod */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .feature-item {
-            background: #141a15;
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 6px;
-        }
-
-        .feature-item i {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .feature-item h4 {
-            margin: 0 0 8px 0;
-            font-size: 1.3rem;
-            color: #fff;
-        }
-
-        .feature-item p {
-            margin: 0;
-            font-size: 1rem;
+            gap: 10px;
             color: var(--text-muted);
-        }
-
-        /* Tabela de Requisitos Focada em PCs Fracos */
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .specs-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #141a15;
-        }
-
-        .specs-table td:first-child {
+            text-decoration: none;
+            padding: 10px 5px;
             font-weight: 700;
-            color: var(--primary);
-            width: 30%;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
         }
 
-        .cta-container {
-            margin-top: 25px;
+        aside nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--neon-glow);
+            transform: translateX(4px);
         }
 
-        .btn {
+        /* Painel de Conteúdo Principal */
+        main {
+            padding: 40px;
+        }
+
+        .section-block {
+            margin-bottom: 40px;
+        }
+
+        .section-block h2 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-block h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+        }
+
+        /* Botão Tático de Download (Lucrativo via download.html) */
+        .download-zone {
+            background: rgba(0,0,0,0.2);
+            border: 1px dashed var(--border-color);
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .btn-action {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background-color: var(--primary);
+            background-color: var(--neon-green);
             color: #000;
-            padding: 18px 40px;
-            font-size: 1.4rem;
+            padding: 15px 40px;
+            font-size: 1.3rem;
             font-weight: 700;
+            text-transform: uppercase;
             text-decoration: none;
             border-radius: 4px;
-            text-transform: uppercase;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 20px var(--primary-glow);
+            box-shadow: 0 0 15px var(--neon-glow);
+            transition: all 0.2s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px var(--primary-glow);
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--neon-green);
             filter: brightness(1.1);
         }
 
-        .disclaimer-box {
-            background-color: #181313;
-            border-left: 4px solid #b32d2d;
-            font-size: 1rem;
-            color: var(--text-muted);
+        /* Grid de Imagens do Jogo */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .screen-card {
+            background: #000;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .screen-card:hover {
+            transform: scale(1.03);
+            border-color: var(--neon-green);
+        }
+
+        .screen-card .title-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.85);
+            padding: 5px 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        /* Especificações Técnicas */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-list li span:first-child {
+            color: var(--neon-green);
+            font-weight: 700;
         }
 
         footer {
-            background-color: #040605;
-            padding: 30px 20px;
             text-align: center;
-            font-size: 1rem;
-            color: #4a5568;
-            border-top: 1px solid var(--border-color);
             margin-top: 40px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        @media (max-width: 768px) {
-            .main-layout { grid-template-columns: 1fr; }
-            .header-title-container { text-align: center; flex-direction: column; }
-            .header-text { text-align: center; }
-            h1 { font-size: 2.8rem; }
+        @media(max-width: 768px) {
+            .main-box { grid-template-columns: 1fr; }
+            header { flex-direction: column; text-align: center; }
+            .header-info h1 { font-size: 2.2rem; }
+            aside { border-right: none; border-bottom: 1px solid var(--border-color); }
+            main { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-title-container">
-            <!-- Logo Circular Corrigida para PNG -->
+    <div class="bg-banner"></div>
+    <div class="neon-grid-line"></div>
+
+    <div class="wrapper">
+        <header>
             <img src="Logo.png" alt="Logo CS Nordeste" class="logo-circular">
-            <div class="header-text">
-                <h1>COUNTER-STRIKE<br>EDIÇÃO NORDESTINA</h1>
-                <p class="subtitle">O puro suco da resenha e da cultura brasileira</p>
+            <div class="header-info">
+                <h1>COUNTER-STRIKE</h1>
+                <p>Edição Nordestina</p>
             </div>
+        </header>
+
+        <div class="main-box">
+            <aside>
+                <div class="yt-box">
+                    <img src="youtube.png" alt="YouTube">
+                    <p>Canal Oficial</p>
+                </div>
+
+                <h3>Menu</h3>
+                <nav>
+                    <a href="#"><i class="fa-solid fa-crosshairs"></i> Início</a>
+                    <a href="#baixar"><i class="fa-solid fa-download"></i> Download</a>
+                    <a href="#specs"><i class="fa-solid fa-microchip"></i> Requisitos</a>
+                    <a href="https://www.youtube.com/@CounterStrikeEdi%C3%A7%C3%A3oNordestina" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> YouTube</a>
+                </nav>
+            </aside>
+
+            <main>
+                <div class="section-block">
+                    <h2>🌵 O Projeto</h2>
+                    <p>O <strong>Counter-Strike Edição Nordestina</strong> transforma as partidas competitivas tradicionais em pura descontração regional. O que começou originalmente como um projeto de escola divertido evoluiu para um mod completo e portátil, pronto para rodar instantaneamente em qualquer computador sem burocracia ou exigência de senhas.</p>
+                </div>
+
+                <div class="section-block" id="baixar">
+                    <h2>💾 Arquivo de Instalação</h2>
+                    <p>Abaixo você encontra o link para download do mod consolidado em um arquivo único compactado, facilitando o transporte e a execução direta.</p>
+                    <div class="download-zone">
+                        <a href="download.html" class="btn-action">
+                            <i class="fa-solid fa-cloud-arrow-down"></i> Baixar Mod Completo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2>📸 Galeria do Mod</h2>
+                    <div class="screenshot-grid">
+                        <div class="screen-card" style="background: url('mapa-1.png') center/cover;">
+                            <div class="title-label">Mapa Customizado 1</div>
+                        </div>
+                        <div class="screen-card" style="background: url('mapa-2.png') center/cover;">
+                            <div class="title-label">Mapa Customizado 2</div>
+                        </div>
+                        <div class="screen-card" style="background: url('hud jogo.png') center/cover;">
+                            <div class="title-label">HUD do Jogo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block" id="specs">
+                    <h2>🖥️ Compatibilidade de Sistema</h2>
+                    <ul class="info-list">
+                        <li><span>Sistema Operacional:</span> <span>Windows 7 / 8 / 10 / 11</span></li>
+                        <li><span>Memória RAM Mínima:</span> <span>512 MB (Altamente otimizado para computadores de escolas)</span></li>
+                        <li><span>Armazenamento:</span> <span>~ 450 MB Livres (Suporta execução direta via Pendrive)</span></li>
+                        <li><span>Privilégios de Usuário:</span> <span>Não requer nível de administrador para rodar</span></li>
+                    </ul>
+                </div>
+            </main>
         </div>
-    </header>
 
-    <div class="main-layout">
-        <!-- Menu Lateral Clássico -->
-        <aside class="sidebar">
-            <!-- Box do Ícone Corrigido para youtube.png -->
-            <div class="youtube-status-box">
-                <img src="youtube.png" alt="YouTube" class="youtube-icon-img">
-                <p class="youtube-status-text">Canal Oficial no YouTube</p>
-            </div>
-
-            <h3>Navegação</h3>
-            <a href="#"><i class="fa-solid fa-house"></i> Início</a>
-            <a href="#download"><i class="fa-solid fa-download"></i> Baixar Mod</a>
-            <a href="#requisitos"><i class="fa-solid fa-microchip"></i> Requisitos</a>
-            <a href="https://www.youtube.com/@CounterStrikeEdi%C3%A7%C3%A3oNordestina" target="_blank"><i class="fa-brands fa-youtube"></i> Visitar Canal</a>
-        </aside>
-
-        <!-- Conteúdo Principal Completo e Organizado -->
-        <main class="content">
-            <section id="sobre">
-                <h2>🌵 O Projeto</h2>
-                <p>O <strong>Counter-Strike Edição Nordestina</strong> transforma o clássico jogo de tiro tático em uma verdadeira celebração da cultura e do humor brasileiro. Inicialmente concebido como um projeto escolar descontraído, o mod evoluiu para uma versão portátil definitiva criada sob medida para rodar direto, sem enrolação.</p>
-                
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-robot"></i>
-                        <h4>Bots Brasileiros</h4>
-                        <p>Diga adeus aos nomes genéricos. Enfrente lendas locais dubladas em áudios de pura resenha.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        <h4>Mapas Modificados</h4>
-                        <p>Cenários adaptados que trazem a atmosfera e as piadas visuais da nossa realidade.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-box-archive"></i>
-                        <h4>100% Portátil</h4>
-                        <p>Configurado para não exigir permissão de administrador. Baixe, extraia e jogue instantaneamente.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="download">
-                <h2>💾 Área de Download</h2>
-                <p>O jogo está compactado em formato único pronto para transferência direta. Ao clicar no link abaixo, você será redirecionado de forma segura à nossa página de processamento para a liberação do arquivo.</p>
-                <div class="cta-container">
-                    <a href="download.html" class="btn"><i class="fa-solid fa-circle-down"></i> Baixar Jogo Grátis</a>
-                </div>
-            </section>
-
-            <section id="requisitos">
-                <h2>🖥️ Especificações do Sistema</h2>
-                <p>O mod foi otimizado minuciosamente para garantir ótimo desempenho e alta taxa de quadros (FPS), operando perfeitamente inclusive em computadores e notebooks escolares limitados.</p>
-                <table class="specs-table">
-                    <tr>
-                        <td>Sistema Operacional</td>
-                        <td>Windows 7 / 8 / 10 / 11</td>
-                    </tr>
-                    <tr>
-                        <td>Memória RAM</td>
-                        <td>512 MB (Mínimo) / 2 GB (Recomendado)</td>
-                    </tr>
-                    <tr>
-                        <td>Armazenamento</td>
-                        <td>Aprox. 450 MB livres (Roda direto via Pendrive)</td>
-                    </tr>
-                    <tr>
-                        <td>Privilégios</td>
-                        <td>Não requer permissões de Administrador</td>
-                    </tr>
-                </table>
-            </section>
-
-            <section class="disclaimer-box">
-                <h2 style="color: #ef4444; font-size: 1.5rem;">⚠️ Nota de Isenção</h2>
-                <p>Este é um projeto não comercial desenvolvido de forma independente por fãs da franquia. Todas as propriedades intelectuais, marcas registradas e códigos de base pertencem integralmente à <strong>Valve Corporation</strong>.</p>
-            </section>
-        </main>
+        <footer>
+            <p>&copy; 2026 Counter-Strike Edição Nordestina. Projeto feito por fãs.</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Counter-Strike Edição Nordestina. Desenvolvido para a comunidade.</p>
-    </footer>
 
 </body>
 </html>
